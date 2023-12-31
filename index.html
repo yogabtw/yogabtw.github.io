@@ -3,86 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.png" type="image/x-icon">
-  <title>Countdown</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      justify-content: center;
-    }
-
-    #video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    #countdown-container {
-        display: flex;
-        justify-content: center;
-        color: white;
-    }
-
-    .time {
-        display: flex;
-    } .time-container {
-        display: flex;
-    } h1 {
-        font-size: 64px;
-        color: white;
-        margin: 0;
-        font-weight: 300;
-    } p {
-        padding: 12px;
-        margin-left: 3px;
-        margin-right: 3px;
-        /* border: 1px solid rgba(255, 255, 255, 0.5); */
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(20px);
-        border-radius: 12px;
-        font-weight: 300;
-    } .hero {
-        text-align: center;
-        /* margin-top: 500px; */
-        color: white;
-    }
-  </style>
+  <link rel="icon" href="/src/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <title>COUNTDOWN</title>
 </head>
 <body>
     <video id="video-background" autoplay loop muted>
-    <source src="video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+        <source src="/src/video/video.mp4" type="video/mp4">
     </video>
     <div class="hero">
-        <h1>Countdown 2024</h1>
-        <span>Selamat taun baru ngab, info maling pitek</span>
+        <span class="t">Selamat tahun baru ngab, kecuali cina</span>
     </div>
-    <div class="time" id="countdown-container">
-    <div class="time-container" id="countdown"></div>
+        <div class="time" id="countdown-container">
+        <div class="time-container" id="countdown"></div>
     </div>
-    <script>
-    const targetDate = new Date('2024-01-01T00:00:00');
-    function hitungMundur() {
-        const sekarang = new Date();
-        const selisihWaktu = targetDate - sekarang;
-        const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
-        const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
-        const detik = Math.floor((selisihWaktu % (1000 * 60)) / 1000);
-        const countdownElement = document.getElementById('countdown');
-        countdownElement.innerHTML = `<p>${hari} hari</p><p>${jam} jam</p><p>${menit} menit</p><p>${detik} detik</p>`;
-    }
-    hitungMundur();
-    setInterval(hitungMundur, 1000);
-    </script>
+    <script src="/src/js/script.js"></script>
 </body>
 </html>
